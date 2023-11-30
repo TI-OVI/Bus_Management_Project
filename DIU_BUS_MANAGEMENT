@@ -4,7 +4,6 @@
 
 
 
-
 typedef struct driver
 {
     char name[1000];
@@ -65,6 +64,7 @@ areg *arhead = NULL;
 // Function declarations
 void add_bus_route();
 void add_driver();
+void displayDriverDetails();
 void displayBusRoutes();
 void loadCardBalance();
 void deductFare(int routeId);
@@ -72,7 +72,7 @@ void freeMemory();
 void uregistration();
 int ulogin(ureg *ulhead);
 void aregistration();
-int  alogin(areg *alhead);
+int alogin(areg *alhead);
 void admin();
 void user();
 void buyTicket();
@@ -87,10 +87,10 @@ int main()
     {
         // Welcome message with ASCII art border
 
-                 printf("+------------------------------------------------------+\n");
-                 printf(" |               Welcome to Daffodil Bus              |\n");
-                 printf(" |                  Management System                 |\n");
-                 printf("+------------------------------------------------------+\n\n");
+        printf("+------------------------------------------------------+\n");
+        printf(" |               Welcome to Daffodil Bus              |\n");
+        printf(" |                  Management System                 |\n");
+        printf("+------------------------------------------------------+\n\n");
 
         // Bus ASCII art
         printf("   _________\n");
@@ -136,6 +136,7 @@ int main()
 
     return 0;
 }
+
 void add_bus_route()
 {
     BusRoute *newbus = (BusRoute*)malloc(sizeof(BusRoute));
@@ -295,6 +296,25 @@ void add_driver()
     printf("\t\tDriver added successfully.\n");
 }
 
+void displayDriverDetails()
+{
+    driver *current = dhead;
+
+    printf("\n------------------------ Driver Details ------------------------\n");
+
+    while (current != NULL)
+    {
+        printf("Driver Name: %s\n", current->name);
+        printf("Mobile: %d\n", current->mobile);
+        printf("Bus ID: %d\n", current->busid);
+        printf("----------------------------------------\n");
+
+        current = current->dnext;
+    }
+
+    printf("\n");
+}
+
 void displayBusRoutes()
 {
     BusRoute *current = bushead;
@@ -313,10 +333,6 @@ void displayBusRoutes()
 
     fclose(fp);
 }
-
-
-
-
 
 void loadCardBalance()
 {
@@ -559,7 +575,6 @@ void admin()
     }
 }
 
-
 void user()
 {
     int choice;
@@ -619,7 +634,6 @@ void user()
         printf("\t\tInvalid choice. Please try again.\n");
     }
 }
-
 
 // aboutProject funtion defination
 void about_project()
