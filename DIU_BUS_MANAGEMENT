@@ -87,10 +87,10 @@ int main()
     {
         // Welcome message with ASCII art border
 
-        printf("+------------------------------------------------------+\n");
-        printf(" |               Welcome to Daffodil Bus              |\n");
-        printf(" |                  Management System                 |\n");
-        printf("+------------------------------------------------------+\n\n");
+        printf("\t\t\t\t+------------------------------------------------------+\t\t\t\t\n");
+        printf("\t\t\t\t|                Welcome to Daffodil Bus               |\t\t\t\t\n");
+        printf(" \t\t\t\t|                   Management System                  |\t\t\t\t\n");
+        printf("\t\t\t\t+------------------------------------------------------+\t\t\t\t\n\n");
 
         // Bus ASCII art
         printf("   _________\n");
@@ -667,4 +667,3 @@ void about_project()
         exit(0);
     }
 }
-
